@@ -1,93 +1,33 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+# stealthier
+### an open source, vanlife community resource
 
 ---
 
-# svelte app
+stealthier aims to collect data from van & vehicle dwelling people to share our collective knowledge about specific locations and resources available to us. Some examples include clutch overnight parking spots, public wifi spots you can reach from your van. 
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+**In building this app, there are a few considerations I'd like to mention here...**
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
+### Users do not need to sign up to submit to the database
+> This decision was made because I want people to submit things without worry about their personal data being linked to this project.
 
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
-```
+### Users do no have the ability to delete or update listings
+> The database will be monitored by a group of volunteers to ensure that data on stealthier is helpful, friendly, and safe. If you'd like to be one of these volunteers, reach out to me on twitter [@queeryselector](https://twitter.com/queeryselector)
 
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
+### v.0.1.0 is a starting point...
+> There are a LOT of features that are not currently implemented in version 0.1.0. My hope is that the community can help drive development and help determine which features are built first. These things currently include... 
+> * filter listings by data type (location, resources, etc.)
+> * photo uploads on listings
+> * allow users to verify listings submitted by others
+> * interactive map with pins for all listings
 
+## Contributors
+> If you're a developer and would like to contribute, please reach out on [twitter](https://twitter.com/queeryselector). stealthier is built with [Svelte.js](https://svelte.dev/)
+> Even if you're not familiary with Svelte, still consider contributing; Svelte is very friendly and feels like writing plain HTML & JS, I'm sure you'll enjoy it!
 
-## Get started
+&nbsp;
 
-Install the dependencies...
+&nbsp;
 
-```bash
-cd svelte-app
-npm install
-```
+&nbsp;
 
-...then start [Rollup](https://rollupjs.org):
-
-```bash
-npm run dev
-```
-
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
-
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
-
-
-## Building and running in production mode
-
-To create an optimised version of the app:
-
-```bash
-npm run build
-```
-
-You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
-
-
-## Single-page app mode
-
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
-
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
-
-```js
-"start": "sirv public --single"
-```
-
-
-## Deploying to the web
-
-### With [now](https://zeit.co/now)
-
-Install `now` if you haven't already:
-
-```bash
-npm install -g now
-```
-
-Then, from within your project folder:
-
-```bash
-cd public
-now deploy --name my-project
-```
-
-As an alternative, use the [Now desktop client](https://zeit.co/download) and simply drag the unzipped project folder to the taskbar icon.
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public my-project.surge.sh
-```
+*stealthier is built and maintained by [Jacob Stordahl](https://jacobstordahl.com)*
