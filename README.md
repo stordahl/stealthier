@@ -1,4 +1,4 @@
-# stealthier
+# stealthier 🚐
 ### an open source, vanlife community resource
 
 ---
