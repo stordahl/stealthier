@@ -35,3 +35,4 @@ stealthier aims to collect data from van & vehicle dwelling people to share our 
 &nbsp;
 
 *stealthier is an open source project founded and maintained by [Jacob Stordahl](https://jacobstordahl.com)*
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W7W81PO93)
