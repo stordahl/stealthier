@@ -2,6 +2,10 @@
 ### an open source, vanlife community resource
 
 ---
+##### current version : 0.1.0
+
+##### current build status : [![Netlify Status](https://api.netlify.com/api/v1/badges/b3551d7e-760f-4950-bb73-7f8ade10c2c9/deploy-status)](https://app.netlify.com/sites/stordahl/deploys)
+---
 
 stealthier aims to collect data from van & vehicle dwelling people to share our collective knowledge about specific locations and resources available to us. Some examples include clutch overnight parking spots, public wifi spots you can reach from your van. 
 
@@ -30,4 +34,8 @@ stealthier aims to collect data from van & vehicle dwelling people to share our 
 
 &nbsp;
 
-*stealthier is built and maintained by [Jacob Stordahl](https://jacobstordahl.com)*
+*stealthier is an open source project founded and maintained by [Jacob Stordahl](https://jacobstordahl.com)*
+
+&nbsp;
+
+[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/W7W81PO93)
