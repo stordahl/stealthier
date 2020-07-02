@@ -3,6 +3,7 @@
 
 ---
 current version : 0.1.0
+
 current build status : [![Netlify Status](https://api.netlify.com/api/v1/badges/b3551d7e-760f-4950-bb73-7f8ade10c2c9/deploy-status)](https://app.netlify.com/sites/stordahl/deploys)
 ---
 
