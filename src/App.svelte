@@ -2,13 +2,14 @@
 	import Header from './components/Header.svelte';
 	import Form from './components/Form.svelte';
 	import CardGrid from './components/CardGrid.svelte';
+	import Footer from './components/Footer.svelte';
 </script>
 
 <main>
 	<Header />
 	<Form />
 		<CardGrid />
-
+	<Footer />
 </main>
 
 <style>

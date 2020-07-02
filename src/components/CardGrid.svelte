@@ -6,9 +6,7 @@
 
 	db.collection("listings").orderBy("city", "asc").onSnapshot(snapData => {
 		arr = snapData.docs
-    });
-
-    
+    });  
 </script>
 
 <div id="card-grid">

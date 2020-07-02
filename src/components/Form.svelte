@@ -1,56 +1,44 @@
 <script>
     import { db } from "../firebase.js";
 
-    
-        let newListingTitle = '';
-        let newListingCity = '';
-        let newListingState = '';
-        let newListingGmaps = '';
-        let newListingDesc = '';
+    let timestamp = new Date();
+    let honeyPot = '';
+    let values = {
+        title: '',
+        city: '',
+        state: '',
+        gmaps:'',
+        desc:'',
+        type:'Municipality',
+        resources: [],
+        timestamp: timestamp.getTime()
+    };
+    let typeOptions = [
+        'Municipality',
+        'State Park',
+        'National Park / Forest'
+    ];
+    let resourceOptions = [
+        'Public Wifi',
+        'Overnight Parking',
+        'Day Parking',
+        'Laundromat',
+        'Public Shower',
+        'Public Restroom',
+        'Port-O-John',
+        'Views',
+        'Park',
+        'Coffee Spot',
+        'Other'
+    ];
 
-        let newListingType = 'Municipality';
-        let typeOptions = [
-            'Municipality',
-            'State Park',
-            'National Park / Forest'
-        ];
-
-        let newListingResources = [ ];
-        let resourceOptions = [
-            'Public Wifi',
-            'Overnight Parking',
-            'Day Parking',
-            'Laundromat',
-            'Public Shower',
-            'Public Restroom',
-            'Port-O-John',
-            'Views',
-            'Park',
-            'Coffee Spot'
-        ];
-
-        let honeyPot = '';
-    
-
-    function newListing(){
-        let timestamp = new Date();
-        if (honeyPot === ''){
-            db.collection('listings').add({
-                title: newListingTitle,
-                city: newListingCity,
-                state: newListingState,
-                gmaps: newListingGmaps,
-                resources: newListingResources,
-                type: newListingType,
-                desc: newListingDesc,
-                timestamp: timestamp.getTime()
-            });
-
+    const newListing = () => {
+        if (honeyPot === '' && Object.values(values).every(x => (x !== null || x !== ''))){
+            db.collection('listings').add(values);
         } else{
-            alert('fuck off bots!');
+            alert('please fill out all of the form fields!');
         }
-        
-    }
+    };
 
 </script>
 
@@ -60,35 +48,80 @@
     <label for="collapsible" class="toggle-label">add new</label>
 
    <div class="collapsible-content">
-    <div class="content-inner">
-      <input type="text" placeholder="Name" bind:value={newListingTitle} required>
-      <input type="text" placeholder="City" bind:value={newListingCity} required>
-      <input type="text" placeholder="State" bind:value={newListingState} required>
-      <input type="text" placeholder="Google Maps Link" bind:value={newListingGmaps} required>
-      <select name="type" id="type-select" bind:value={newListingType} required>
+    <form class="content-inner" on:submit|preventDefault={newListing}>
+      <input type="text" name="title"placeholder="Name" bind:value={values.title} required>
+      <input type="text" name="city"placeholder="City" bind:value={values.city} required>
+      <input type="text" name="state"placeholder="State" bind:value={values.state} required>
+      <input type="text" name="gmaps"placeholder="Google Maps Link" bind:value={values.gmaps} required>
+      <select name="type" id="type-select" bind:value={values.type} required>
         {#each typeOptions as type}
             <option value={type}>
                 {type}
             </option>
 	    {/each}
       </select>
-      <select name="resources" id="resources-select" multiple bind:value={newListingResources} required>
+      <div class="resources-container">
+      <div class="resources-header">
+        <h3>resources</h3>
+        <div class="tooltip"> i <span class="tooltiptext">command click for multiple</span> </div>
+      </div>
+      
+      <select name="resources" id="resources-select"  multiple data-placeholder="add resources" bind:value={values.resources} required>
         {#each resourceOptions as resource}
             <option value={resource}>
                 {resource}
             </option>
 	    {/each}
       </select>
-      <textarea name="desc" id="desc-input" cols="30" rows="5" placeholder="location description..." bind:value={newListingDesc}></textarea>
+      
+      </div>
+      <textarea name="desc" id="desc-input" cols="30" rows="5" placeholder="location description..." bind:value={values.desc}></textarea>
         <!-- honey pot -->
         <input class="hp" autocomplete="off" type="text" id="name" name="name" placeholder="Your name here" bind:value={honeyPot}>
       
-      <input type="submit" on:click={newListing}>
-    </div>
+      <button type="submit">submit</button>
+    </form>
    </div>
 </div>
 
 <style>
+.resources-header{
+    display:flex;
+    justify-content: space-between;
+    margin: .5rem 0;
+}
+    /* Tooltip container */
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border-radius: 6px;
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 10;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+    
+    .content-inner{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
     .hp{
         opacity: 0;
         position: absolute;
