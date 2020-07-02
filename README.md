@@ -30,4 +30,4 @@ stealthier aims to collect data from van & vehicle dwelling people to share our 
 
 &nbsp;
 
-*stealthier is built and maintained by [Jacob Stordahl](https://jacobstordahl.com)*
+*stealthier is an open source project founded and maintained by [Jacob Stordahl](https://jacobstordahl.com)*
