@@ -32,13 +32,31 @@
         'Other'
     ];
 
+    const reset = () => {
+        values = {
+            title: '',
+            city: '',
+            state: '',
+            gmaps:'',
+            desc:'',
+            type:'Municipality',
+            resources: [],
+            timestamp: timestamp.getTime()
+        };
+    };
+
+    
+
     const newListing = () => {
         if (honeyPot === '' && Object.values(values).every(x => (x !== null || x !== ''))){
             db.collection('listings').add(values);
+            document.getElementById('success').style.display = 'block';
         } else{
             alert('please fill out all of the form fields!');
         }
+        reset();
     };
+    
 
 </script>
 
@@ -48,6 +66,9 @@
     <label for="collapsible" class="toggle-label">add new</label>
 
    <div class="collapsible-content">
+    <div>
+        <h5 id="success" style="color:#5eb571; font-style:italic;">thank you for contributing to stealthier!</h5>
+    </div>
     <form class="content-inner" on:submit|preventDefault={newListing}>
       <input type="text" name="title"placeholder="Name" bind:value={values.title} required>
       <input type="text" name="city"placeholder="City" bind:value={values.city} required>
@@ -85,6 +106,10 @@
 </div>
 
 <style>
+#success{
+    margin-bottom:2rem;
+    display:none;
+}
 .resources-header{
     display:flex;
     justify-content: space-between;
